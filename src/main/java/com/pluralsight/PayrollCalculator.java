@@ -21,8 +21,14 @@ public class PayrollCalculator {
 
         myScanner.nextLine();
 
-        System.out.println(userName + " makes $" + (hoursWorked * hourlyRate) + " per check");
-
+        if (hoursWorked > 40){
+            double overtimeHours = hoursWorked - 40;
+            double overtimePay = (overtimeHours * (hourlyRate * 1.5)) + (hourlyRate * hoursWorked);
+            System.out.println(userName + " makes $" + overtimePay + " per check");
+        }
+        else {
+            System.out.println(userName + " makes $" + (hoursWorked * hourlyRate) + " per check");
+        }
 
     }
 }
